@@ -37,12 +37,12 @@
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumb">
                                         <li>
-                        <a href="#">系统</a>
+                        <a href="{:url('index/index')}">系统</a>
                     </li>
                                         <li>
-                        <a href="#">用户管理</a>
+                        <a href="{:url('admin/lst')}">管理员管理</a>
                     </li>
-                                        <li class="active">添加用户</li>
+                                        <li class="active">添加管理员</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -54,31 +54,33 @@
     <div class="col-lg-12 col-sm-12 col-xs-12">
         <div class="widget">
             <div class="widget-header bordered-bottom bordered-blue">
-                <span class="widget-caption">新增用户</span>
+                <span class="widget-caption">新增管理员</span>
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
                     <form class="form-horizontal" role="form" action="" method="post">
                         <div class="form-group">
-                            <label for="username" class="col-sm-2 control-label no-padding-right">用户名</label>
+                            <label for="username" class="col-sm-2 control-label no-padding-right">管理员名</label>
                             <div class="col-sm-6">
                                 <input class="form-control" id="username" placeholder="" name="username" required="" type="text">
+                                <!-- required="" -->
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 
                         <div class="form-group">
-                            <label for="group_id" class="col-sm-2 control-label no-padding-right">用户角色</label>
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">管理员密码</label>
                             <div class="col-sm-6">
-                                <select name="group_id" style="width: 100%;">
-                                                                        <option selected="selected" value="8">测试</option>
-                                                                    </select>
+                                <input class="form-control" id="password" placeholder="" name="password"  required="" type="text">
+                                <!-- required="" -->
                             </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
                         </div>  
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-default">保存信息</button>
                             </div>
+
                         </div>
                     </form>
                 </div>

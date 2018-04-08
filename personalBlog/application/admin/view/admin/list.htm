@@ -37,7 +37,7 @@
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumb">
                                         <li>
-                        <a href="#">系统</a>
+                        <a href="{:url('index/index')}">系统</a>
                     </li>
                                         <li class="active">用户管理</li>
                                         </ul>
@@ -47,7 +47,7 @@
                 <!-- Page Body -->
                 <div class="page-body">
                     
-<button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/admin/user/add.html'"> <i class="fa fa-plus"></i> Add
+<button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('admin/add')}'"> <i class="fa fa-plus"></i> Add
 </button>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -57,15 +57,16 @@
                     <table class="table table-bordered table-hover">
                         <thead class="">
                             <tr>
-                                <th class="text-center">ID</th>
+                                <th class="text-center" width="10%">ID</th>
                                 <th class="text-center">用户名称</th>
-                                <th class="text-center">操作</th>
+                                <th class="text-center" width="20%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                                                        <tr>
-                                <td align="center">6</td>
-                                <td align="center">test</td>
+                            {volist name="list" id="value"}
+                            <tr>
+                                <td align="center">{$value.id}</td>
+                                <td align="center">{$value.username}</td>
                                 <td align="center">
                                     <a href="/admin/user/edit/id/6.html" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
@@ -75,32 +76,14 @@
                                     </a>
                                 </td>
                             </tr>
-                                                        <tr>
-                                <td align="center">7</td>
-                                <td align="center">aaaaaa</td>
-                                <td align="center">
-                                    <a href="/admin/user/edit/id/7.html" class="btn btn-primary btn-sm shiny">
-                                        <i class="fa fa-edit"></i> 编辑
-                                    </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '/admin/user/del/id/7.html')" class="btn btn-danger btn-sm shiny">
-                                        <i class="fa fa-trash-o"></i> 删除
-                                    </a>
-                                </td>
-                            </tr>
-                                                        <tr>
-                                <td align="center">8</td>
-                                <td align="center">bbb</td>
-                                <td align="center">
-                                    <a href="/admin/user/edit/id/8.html" class="btn btn-primary btn-sm shiny">
-                                        <i class="fa fa-edit"></i> 编辑
-                                    </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '/admin/user/del/id/8.html')" class="btn btn-danger btn-sm shiny">
-                                        <i class="fa fa-trash-o"></i> 删除
-                                    </a>
-                                </td>
-                            </tr>
+                            {/volist}
+                           
                                                     </tbody>
                     </table>
+                    <div class="text-right">
+                        {$list->render()}
+                    </div>
+                    
                 </div>
                 <div>
                 	                </div>
