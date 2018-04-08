@@ -1,0 +1,2 @@
+
+!function(){function e(e,t){var a=[];for(var n in t)a.push(n+"="+t[n]);return e+"?"+a.join("&")}function t(e,t){var a=document.createElement("script");a.readyState?a.onreadystatechange=function(){("loaded"===a.readyState||"complete"===a.readyState)&&(a.onreadystatechange=null,t&&t())}:a.onload=function(){t&&t()},a.src=e,a.charset="utf-8",document.getElementsByTagName("head")[0].appendChild(a)}var a="//rp.baidu.com/",n=a+"customer_search/api/js";n=e(n,{sid:"10711555151249188672",plate_url:encodeURIComponent(window.location.href),t:Math.ceil(new Date/36e5)}),t(n)}();
