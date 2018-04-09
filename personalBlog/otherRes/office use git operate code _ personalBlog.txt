@@ -1,0 +1,11 @@
+cd D://software/code/PHP/phpStudy/PHPTutorial/WWW/github/personalBlog
+git pull https://github.com/fry404006308/personalBlog.git
+
+提交
+git add .
+git commit -m "提交信息"
+git push -u origin master
+
+
+初次
+git clone https://github.com/fry404006308/personalBlog.git
