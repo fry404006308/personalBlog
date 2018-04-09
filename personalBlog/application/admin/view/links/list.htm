@@ -39,7 +39,7 @@
                                         <li>
                         <a href="{:url('index/index')}">系统</a>
                     </li>
-                                        <li class="active">用户管理</li>
+                                        <li class="active">链接管理</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -47,7 +47,7 @@
                 <!-- Page Body -->
                 <div class="page-body">
                     
-<button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('admin/add')}'"> <i class="fa fa-plus"></i> Add
+<button type="button" tooltip="添加链接" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('links/add')}'"> <i class="fa fa-plus"></i> Add
 </button>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -58,7 +58,9 @@
                         <thead class="">
                             <tr>
                                 <th class="text-center" width="10%">ID</th>
-                                <th class="text-center">用户名称</th>
+                                <th class="text-center">链接名称</th>
+                                <th class="text-center">链接地址</th>
+                                <th class="text-center">链接描述</th>
                                 <th class="text-center" width="20%">操作</th>
                             </tr>
                         </thead>
@@ -66,17 +68,25 @@
                             {volist name="list" id="value"}
                             <tr>
                                 <td align="center">{$value.id}</td>
-                                <td align="center">{$value.username}</td>
+                                <td align="center">{$value.title}</td>
+                                <td align="center"><a href="{$value.url}" target="_blank">{$value.url}</a></td>
                                 <td align="center">
-                                    <a href="{:url('admin/edit',array('id'=>$value['id']))}" class="btn btn-primary btn-sm shiny">
+                                    {if condition="$value['desc'] neq ''"}
+                                        {$value.desc}
+                                    {else /}
+                                    暂无描述    
+                                    {/if}
+                                </td>
+                                <td align="center">
+                                    <a href="{:url('links/edit',array('id'=>$value['id']))}" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
                                     </a>
-                                    
-                                    {if condition="$value['id'] neq 1"}
-                                    <a href="#" onClick="warning('确实要删除吗', '{:url('admin/del',array('id'=>$value['id']))}')" class="btn btn-danger btn-sm shiny">
+                                    ·
+ 
+                                    <a href="#" onClick="warning('确实要删除吗', '{:url('links/del',array('id'=>$value['id']))}')" class="btn btn-danger btn-sm shiny">
                                         <i class="fa fa-trash-o"></i> 删除
                                     </a>
-                                    {/if}
+   
 
                                 </td>
                             </tr>

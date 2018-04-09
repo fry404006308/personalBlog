@@ -39,7 +39,10 @@
                                         <li>
                         <a href="{:url('index/index')}">系统</a>
                     </li>
-                                        <li class="active">用户管理</li>
+                                        <li>
+                        <a href="{:url('admin/lst')}">管理员管理</a>
+                    </li>
+                                        <li class="active">修改管理员</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -47,50 +50,43 @@
                 <!-- Page Body -->
                 <div class="page-body">
                     
-<button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '{:url('admin/add')}'"> <i class="fa fa-plus"></i> Add
-</button>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">
         <div class="widget">
+            <div class="widget-header bordered-bottom bordered-blue">
+                <span class="widget-caption">修改管理员</span>
+            </div>
             <div class="widget-body">
-                <div class="flip-scroll">
-                    <table class="table table-bordered table-hover">
-                        <thead class="">
-                            <tr>
-                                <th class="text-center" width="10%">ID</th>
-                                <th class="text-center">用户名称</th>
-                                <th class="text-center" width="20%">操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {volist name="list" id="value"}
-                            <tr>
-                                <td align="center">{$value.id}</td>
-                                <td align="center">{$value.username}</td>
-                                <td align="center">
-                                    <a href="{:url('admin/edit',array('id'=>$value['id']))}" class="btn btn-primary btn-sm shiny">
-                                        <i class="fa fa-edit"></i> 编辑
-                                    </a>
-                                    
-                                    {if condition="$value['id'] neq 1"}
-                                    <a href="#" onClick="warning('确实要删除吗', '{:url('admin/del',array('id'=>$value['id']))}')" class="btn btn-danger btn-sm shiny">
-                                        <i class="fa fa-trash-o"></i> 删除
-                                    </a>
-                                    {/if}
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" action="" method="post">
+                        <!-- 隐藏域，主键，让thinkphp知道修改的是哪一条数据 -->
+                        <input type="hidden" name="id" value="{$data.id}" >
+                        <!--  -->
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label no-padding-right">管理员名</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" id="username" placeholder="" name="username" value="{$data.username}"  required="" type="text">
+                                <!-- required="" -->
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div>
 
-                                </td>
-                            </tr>
-                            {/volist}
-                           
-                                                    </tbody>
-                    </table>
-                    <div class="text-right" style="margin-top: 10px">
-                        {$list->render()}
-                    </div>
-                    
+                        <div class="form-group">
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">管理员密码</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" id="password" placeholder="" name="password"  type="text">
+                                <!-- required="" -->
+                            </div>
+                            <p class="help-block col-sm-4 red">* 留空则表示不修改</p>
+                        </div>  
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default">保存信息</button>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
-                <div>
-                	                </div>
             </div>
         </div>
     </div>

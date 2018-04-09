@@ -13,11 +13,12 @@ class Admin extends Validate
         'username.require' => '名称必须',
         'username.max' => '名称最多不能超过25个字符',
         'password.require' => '密码必须',
-        'password.min' => '密码最少不能32个字符',
+        'password.min' => '密码最少32个字符',
     ];
 
 
     protected $scene = [
         'add' => ['username'=>'require','password'],
+        'edit' => ['username'=>'require'],
     ];
 }

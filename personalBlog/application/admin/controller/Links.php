@@ -5,13 +5,13 @@ use think\Controller;
 use think\Db;
 use think\Validate;
 use think\Loader;
-use app\admin\model\Admin as AdminModel;
-class Admin extends controller
+use app\admin\model\Links as LinksModel;
+class Links extends controller
 {
     public function lst()
     {
     	// 分页输出列表 每页显示3条数据
-		$list = AdminModel::paginate(3);
+		$list = LinksModel::paginate(3);
 		$this->assign('list',$list);
         return view('list');
     }
@@ -31,11 +31,12 @@ class Admin extends controller
     		// 1、接收传递过来的数据
 
     		$data=[
-    			'username'=>input('username'),
-    			'password'=>md5(input('password')),
+    			'title'=>input('title'),
+    			'url'=>input('url'),
+                'desc'=>input('desc'),
     		];
 
-    		$validate = Loader::validate('Admin');
+    		$validate = Loader::validate('Links');
 			if(!$validate->scene('add')->check($data)){
 				$this->error($validate->getError()); die;
     		}
@@ -46,10 +47,10 @@ class Admin extends controller
 			// }
 
     		// if添加成功，就指向success页面
-    		if(Db::name('admin')->insert($data)){
-    			return $this->success('添加管理员成功！！','lst');
+    		if(Db::name('links')->insert($data)){
+    			return $this->success('添加链接成功！！','lst');
     		}else{
-    			return $this->error('添加管理员失败！！');
+    			return $this->error('添加链接失败！！');
     		}
     		return;
     	}
@@ -59,33 +60,28 @@ class Admin extends controller
     public function edit(){
 
         $id=input('id');
-        $data=db('admin')->find($id);
+        $data=db('links')->find($id);
 
         //如果是提交过来的数据
         if(request()->isPost()){
             $arr=[
                 'id'=>input('id'),
-                'username'=>input('username'),
-                //如果接收到密码，并且它不为空，说明我们要修改密码
+                'title'=>input('title'),
+                'url'=>input('url'),
+                'desc'=>input('desc'),   
             ];
 
-            if(input('password')){
-                $arr['password']=md5(input('password'));
-            }else{
-                //如果为空则表示原来的密码不变
-                $arr['password']=$data['password'];
-            }
             //验证
-            $validate = Loader::validate('Admin');
+            $validate = Loader::validate('Links');
             if(!$validate->scene('edit')->check($arr)){
                 $this->error($validate->getError()); die;
             }
             // 更新数据表中的数据
-            $edited=db('admin')->update($arr);
+            $edited=db('links')->update($arr);
             if($edited){
-                return $this->success('修改管理员信息成功！！','lst');
+                return $this->success('修改链接信息成功！！','lst');
             }else{
-                return $this->error('修改管理员信息失败！！');
+                return $this->error('修改链接信息失败！！');
             }
             return;
         }
@@ -95,19 +91,17 @@ class Admin extends controller
 
     public function del(){
         $id=input('id');
-        //初始化管理员不能删除
+        
         // 根据主键删除
-        if($id!=1){
-            //删除操作
-            $deleted=db('admin')->delete(input('id'));
-            if($deleted){
-                return $this->success('删除管理员成功！！','lst');
-            }else{
-                return $this->error('删除管理员失败！！');
-            }
+        
+        //删除操作
+        $deleted=db('links')->delete(input('id'));
+        if($deleted){
+            return $this->success('删除链接成功！！','lst');
         }else{
-            return $this->error('初始化管理员不能删除！！');
+            return $this->error('删除链接失败！！');
         }
+
         
         
     }

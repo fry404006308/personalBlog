@@ -16,6 +16,7 @@ Date: 2018-04-09 04:27:03
 DROP database IF EXISTS `personalBlog`;
 create database personalBlog character set utf8 collate utf8_general_ci;
 use personalBlog;
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
