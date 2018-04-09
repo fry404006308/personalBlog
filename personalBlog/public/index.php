@@ -13,6 +13,9 @@
 
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
+//home
 define('SITE_URL', 'http://127.0.0.1:81/personalBlog');
+//office
+// define('SITE_URL', 'http://127.0.0.1/personalBlog');
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';
