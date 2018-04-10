@@ -48,9 +48,9 @@ class Links extends controller
 
     		// if添加成功，就指向success页面
     		if(Db::name('links')->insert($data)){
-    			return $this->success('添加链接成功！！','lst');
+    			return $this->success('添加文章成功！！','lst');
     		}else{
-    			return $this->error('添加链接失败！！');
+    			return $this->error('添加文章失败！！');
     		}
     		return;
     	}
@@ -79,9 +79,9 @@ class Links extends controller
             // 更新数据表中的数据
             $edited=db('links')->update($arr);
             if($edited){
-                return $this->success('修改链接信息成功！！','lst');
+                return $this->success('修改文章信息成功！！','lst');
             }else{
-                return $this->error('修改链接信息失败！！');
+                return $this->error('修改文章信息失败！！');
             }
             return;
         }
@@ -97,9 +97,9 @@ class Links extends controller
         //删除操作
         $deleted=db('links')->delete(input('id'));
         if($deleted){
-            return $this->success('删除链接成功！！','lst');
+            return $this->success('删除文章成功！！','lst');
         }else{
-            return $this->error('删除链接失败！！');
+            return $this->error('删除文章失败！！');
         }
 
         

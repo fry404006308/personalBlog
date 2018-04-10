@@ -29,13 +29,31 @@
 
                     <li>
                         <a href="#" class="menu-dropdown">
+                            <i class="menu-icon fa fa-list"></i>
+                            <span class="menu-text">栏目管理</span>
+                            <i class="menu-expand"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="{:url('Cate/lst')}">
+                                    <span class="menu-text">
+                                        栏目列表                                   </span>
+                                    <i class="menu-expand"></i>
+                                </a>
+                            </li>
+                        </ul>                            
+                    </li>   
+
+
+                    <li>
+                        <a href="#" class="menu-dropdown">
                             <i class="menu-icon fa fa-file-text"></i>
                             <span class="menu-text">文档</span>
                             <i class="menu-expand"></i>
                         </a>
                         <ul class="submenu">
                             <li>
-                                <a href="/admin/document/index.html">
+                                <a href="{:url('article/lst')}">
                                     <span class="menu-text">
                                         文章列表                                    </span>
                                     <i class="menu-expand"></i>

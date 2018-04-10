@@ -5,20 +5,20 @@ use think\Validate;
 class Admin extends Validate
 {
     protected $rule = [
-        'username' => 'require|max:25',
+        'username' => 'require|max:25|unique:admin',
         'password' => 'require|min:32',
     ];
 
     protected $message = [
-        'username.require' => '名称必须',
-        'username.max' => '名称最多不能超过25个字符',
-        'password.require' => '密码必须',
-        'password.min' => '密码最少32个字符',
+        'username.require' => '管理员名称必须填写',
+        'username.max' => '管理员名称最多不能超过25个字符',
+        'password.require' => '管理员密码必须填写',
+        'password.min' => '管理员密码最少32个字符',
     ];
 
 
     protected $scene = [
-        'add' => ['username'=>'require','password'],
+        'add' => ['username'=>'require|unique:admin','password'],
         'edit' => ['username'=>'require'],
     ];
 }
