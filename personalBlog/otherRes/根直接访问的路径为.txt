@@ -1,0 +1,4 @@
+﻿E:\2017-02-21--SoftWare\PHP\SOFTWARE\phpStudy_New\PHPTutorial\WWW\github\personalBlog
+也就是要直接到这样
+http://localhost:81/personalBlog/public/index.php/admin/article/add.html
+直接localhost:81/personalBlog就到public目录

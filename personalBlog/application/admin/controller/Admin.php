@@ -109,7 +109,12 @@ class Admin extends controller
             return $this->error('初始化管理员不能删除！！');
         }
         
-        
+    }
+
+    public function logout(){
+        // 清除session（当前作用域）
+        session(null);
+        return $this->success('退出成功！！','login/index');
     }
 
 }

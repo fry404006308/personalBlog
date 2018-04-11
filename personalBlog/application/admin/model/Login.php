@@ -3,6 +3,8 @@ namespace app\admin\model;
 
 use think\Model;
 use think\Db;
+use think\Session;
+use think\Request;
 class Login extends Model
 {
 	//模型是处理数据的
@@ -13,8 +15,8 @@ class Login extends Model
     		//密码正确和密码错误两种情况
     		if($user['password']==md5($data['password'])){
     			//写入session
-    			// Session::set('username',$user['username']);
-    			// Session::set('id',$user['id']);
+    			Session::set('username',$user['username']);
+    			Session::set('id',$user['id']);
     			return 1;//信息正确
     		}else{
     			return 0;//密码错误

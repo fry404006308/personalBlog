@@ -1,11 +1,12 @@
-cd D://software/code/PHP/phpStudy/PHPTutorial/WWW/github/personalBlog
+ï»¿cd D://software/code/PHP/phpStudy/PHPTutorial/WWW/github/personalBlog
 git pull https://github.com/fry404006308/personalBlog.git
 
-´£¥æ
+æäº¤
 git add .
-git commit -m "´£¥æ«H®§"
+git commit -m "æäº¤ä¿¡æ¯"
 git push -u origin master
 
 
-ªì¦¸
+åˆæ¬¡
 git clone https://github.com/fry404006308/personalBlog.git
+
