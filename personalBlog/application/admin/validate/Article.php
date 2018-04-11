@@ -4,23 +4,23 @@ namespace app\admin\validate;
 use think\Validate;
 class Article extends Validate
 {
-    // protected $rule = [
-    //     'title' => 'require|max:50',
-    //     'url' => 'require',
-    // ];
+    protected $rule = [
+        'title' => 'require|max:50',
+        'cateid' => 'require',
+    ];
 
-    // protected $message = [
-    //     'title.require' => '链接名称必须填写',
-    //     'title.max' => '链接名称最多不能超过50个字符',
-    //     'url.require' => '链接地址必须填写',
+    protected $message = [
+        'title.require' => '文章名称必须填写',
+        'title.max' => '文章名称最多不能超过50个字符',
+        'cateid.require' => '文章所属栏目必须选择',
         
-    // ];
+    ];
 
 
-    // protected $scene = [
-    //     'add' => ['title'=>'require','url'],
-    //     'edit' => ['title'=>'require','url'],
-    // ];
+    protected $scene = [
+        'add' => ['title'=>'require','cateid'],
+        'edit' => ['title'=>'require','cateid'],
+    ];
 
 
 

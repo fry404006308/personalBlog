@@ -18,6 +18,10 @@
     <link href="__PUBLIC__/style/typicons.css" rel="stylesheet">
     <link href="__PUBLIC__/style/animate.css" rel="stylesheet">
     
+    <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
 </head>
 <body>
 	<!-- 头部 -->
@@ -40,7 +44,7 @@
                         <a href="{:url('index/index')}">系统</a>
                     </li>
                                         <li>
-                        <a href="{:url('links/lst')}">文章管理</a>
+                        <a href="{:url('article/lst')}">文章管理</a>
                     </li>
                                         <li class="active">修改文章</li>
                                         </ul>
@@ -58,40 +62,93 @@
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
-                    <form class="form-horizontal" role="form" action="" method="post">
-
+                    <form class="form-horizontal" role="form" action="" enctype="multipart/form-data" method="post">
                         <!-- 隐藏域，主键，让thinkphp知道修改的是哪一条数据 -->
                         <input type="hidden" name="id" value="{$data.id}" >
                         <!--  -->
-
                         <div class="form-group">
-
                             <label for="title" class="col-sm-2 control-label no-padding-right">文章标题</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="title" value="{$data.title}" placeholder="" name="title" required=""  type="text">
+                                <input class="form-control" id="title" placeholder="" name="title" value="{$data.title}" required=""  type="text">
                                 <!-- required="" -->
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
 
                         <div class="form-group">
-                            <label for="group_id" class="col-sm-2 control-label no-padding-right">文章地址</label>
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">文章作者</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="url" value="{$data.url}" placeholder="" name="url"  required="" type="text">
+                                <input class="form-control" id="author" placeholder="" value="{$data.author}" name="author" type="text">
                                 <!-- required="" -->
                             </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
+
+                        </div>  
+
+                        <div class="form-group">
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">关键字</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" id="keywords" placeholder="" value="{$data.keywords}" name="keywords"  type="text">
+                                <!-- required="" -->
+                            </div>
+
                         </div>  
 
     
                         <div class="form-group">
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">文章描述</label>
                             <div class="col-sm-6">
-                                <textarea class="form-control" value="{$data.desc}" name="desc" id="" cols="30" rows="10"  ></textarea>
-                                
+                                <textarea class="form-control" name="desc" id="desc" cols="30"  rows="6">{$data.desc}</textarea>
                             </div>
-                            
                         </div> 
+
+
+
+                        <div class="form-group">
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">缩略图</label>
+                            <div class="col-sm-6">
+                                 <input  id="pic" placeholder="" name="pic" style="display:inline;"  type="file">
+                                 {if condition="$data['pic'] neq '' "}
+                                     <img src="__IMG__{$data.pic}" height="50px" alt="">
+                                 {else /}
+                                     <span>暂无缩略图</span>
+                                 {/if}
+                            </div>
+                        </div> 
+
+                        
+                        <div class="form-group">
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">所属栏目</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="cateid"  required="" id="cateid">
+                                    <option value="">请选择栏目</option>
+                                    {volist name="cateres" id="value"}
+                                    <option {if condition="$value['id'] eq $data['cateid']"} selected="selected" {/if} value="{$value.id}">{$value.catename}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
+                        </div> 
+                        
+    
+                        <div class="form-group">
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">是否推荐</label>
+                            <div class="col-sm-6">
+                                <label>
+                                    <input {if condition="$data['state'] eq 1"} checked="checked" {/if} class="checkbox-slider colored-darkorange"  name="state" id="state" type="checkbox">
+                                    <!-- checked="checked" -->
+                                    <span class="text"></span>
+                                </label>
+                            </div>
+                        </div> 
+
+
+                        <div class="form-group">
+                            <label for="group_id" class="col-sm-2 control-label no-padding-right">文章内容</label>
+                            <div class="col-sm-6">
+                                <textarea  name="content" id="content" cols="30"  rows="6">{$data.content}</textarea>
+                            </div>
+                        </div> 
+
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
@@ -119,7 +176,13 @@
     <script src="__PUBLIC__/style/jquery.js"></script>
     <!--Beyond Scripts-->
     <script src="__PUBLIC__/style/beyond.js"></script>
+
+
+    <script type="text/javascript">
+        UE.getEditor('content',{initialFrameWidth:900,initialFrameHeight:300,});
+    </script>
     
+
 
 
 </body></html>

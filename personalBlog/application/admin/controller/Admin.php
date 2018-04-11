@@ -82,7 +82,7 @@ class Admin extends controller
             }
             // 更新数据表中的数据
             $edited=db('admin')->update($arr);
-            if($edited){
+            if($edited!==false){
                 return $this->success('修改管理员信息成功！！','lst');
             }else{
                 return $this->error('修改管理员信息失败！！');

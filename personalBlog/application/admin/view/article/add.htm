@@ -44,7 +44,7 @@
                         <a href="{:url('index/index')}">系统</a>
                     </li>
                                         <li>
-                        <a href="{:url('links/lst')}">文章管理</a>
+                        <a href="{:url('article/lst')}">文章管理</a>
                     </li>
                                         <li class="active">添加文章</li>
                                         </ul>
@@ -62,11 +62,11 @@
             </div>
             <div class="widget-body">
                 <div id="horizontal-form">
-                    <form class="form-horizontal" role="form" action="" method="post">
+                    <form class="form-horizontal" role="form" action="" enctype="multipart/form-data" method="post">
                         <div class="form-group">
                             <label for="title" class="col-sm-2 control-label no-padding-right">文章标题</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="title" placeholder="" name="title" required="" type="text">
+                                <input class="form-control" id="title" placeholder="" name="title"  required=""  type="text">
                                 <!-- required="" -->
                             </div>
                             <p class="help-block col-sm-4 red">* 必填</p>
@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">文章作者</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="url" placeholder="" name="url" type="text">
+                                <input class="form-control" id="author" placeholder="" name="author" type="text">
                                 <!-- required="" -->
                             </div>
 
@@ -84,7 +84,7 @@
                         <div class="form-group">
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">关键字</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="url" placeholder="" name="url"  type="text">
+                                <input class="form-control" id="keywords" placeholder="" name="keywords"  type="text">
                                 <!-- required="" -->
                             </div>
 
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">文章描述</label>
                             <div class="col-sm-6">
-                                <textarea class="form-control" name="desc" id="" cols="30" rows="6"></textarea>
+                                <textarea class="form-control" name="desc" id="desc" cols="30" rows="6"></textarea>
                             </div>
                         </div> 
 
@@ -103,7 +103,7 @@
                         <div class="form-group">
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">缩略图</label>
                             <div class="col-sm-6">
-                                 <input class="form-control" id="url" placeholder="" name="url"  type="file">
+                                 <input class="form-control" id="pic" placeholder="" name="pic"  type="file">
                             </div>
                         </div> 
 
@@ -111,13 +111,14 @@
                         <div class="form-group">
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">所属栏目</label>
                             <div class="col-sm-6">
-                                <select class="form-control" name="" id="">
+                                <select class="form-control" name="cateid" required="" id="cateid">
                                     <option value="">请选择栏目</option>
                                     {volist name="cateres" id="value"}
-                                    <option value="{$value.catename}">{$value.catename}</option>
+                                    <option value="{$value.id}">{$value.catename}</option>
                                     {/volist}
                                 </select>
                             </div>
+                            <p class="help-block col-sm-4 red">* 必填</p>
                         </div> 
                         
     
@@ -125,7 +126,7 @@
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">是否推荐</label>
                             <div class="col-sm-6">
                                 <label>
-                                    <input class="checkbox-slider colored-darkorange"  type="checkbox">
+                                    <input class="checkbox-slider colored-darkorange"  name="state" id="state" type="checkbox">
                                     <!-- checked="checked" -->
                                     <span class="text"></span>
                                 </label>
@@ -136,7 +137,7 @@
                         <div class="form-group">
                             <label for="group_id" class="col-sm-2 control-label no-padding-right">文章内容</label>
                             <div class="col-sm-6">
-                                <textarea  name="desc" id="content" cols="30" rows="6"></textarea>
+                                <textarea  name="content" id="content" cols="30" rows="6"></textarea>
                             </div>
                         </div> 
 
