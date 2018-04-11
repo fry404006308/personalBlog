@@ -2,9 +2,11 @@
             <div class="nav">
                 <div class="left"><a href=""><img src="__PUBLIC__/images/hunshang.png" alt="wed114婚尚"></a></div>
                 <div class="right">
-                <div class="box">
-                 <a href="hunjia/"  rel='dropmenu209'>婚嫁</a> <a href="meirong/"  rel='dropmenu110'>美容</a> <a href="fushi/"  rel='dropmenu112'>服饰</a> <a href="yule/"  rel='dropmenu118'>娱乐</a> <a href="jiankang/"  rel='dropmenu120'>健康</a> <a href="meishi/"  rel='dropmenu122'>美食</a> <a href=""  rel='dropmenu117'>生活</a> <a href="tuku/"  rel='dropmenu103'>图库</a> <a href="zhuanti/" >专题</a> 
-                 </div>
+                    <div class="box">
+                        {volist name="cateres" id="value"}
+                            <a href="{:url('cate/index',array('cateid'=>$value['id']))}"  rel='dropmenu209'>{$value.catename}</a> 
+                        {/volist}
+                    </div>
                 </div>
             </div>
         </div>
