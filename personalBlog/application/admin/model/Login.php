@@ -9,6 +9,12 @@ class Login extends Model
 {
 	//模型是处理数据的
     public function login($data){
+        //验证验证码
+        $captcha = new \think\captcha\Captcha();
+        if (!$captcha->check($data['code'])) {
+            return 4; 
+        }
+      
     	$user=DB::name('admin')->where('username','=',$data['username'])->find();
     	//如果用户存在我们就进行处理，否则不进行处理
     	if($user){

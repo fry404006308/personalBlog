@@ -11,8 +11,11 @@ class Login extends controller
     	if(request()->isPost()){
     		$admin=new LoginModel();
     		$data=input('post.');
-    		
-            if($admin->login($data)==1){
+            $num=$admin->login($data);
+    		if($num==4){
+                $this->error('验证码错误');
+            }
+            else if($num==1){
                 $this->success('成功登陆,正在为您跳转...','index/index');
             }else{
                 $this->error('用户名或者密码错误');

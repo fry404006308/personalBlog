@@ -28,10 +28,16 @@
                 <div class="loginbox-textbox">
                     <input class="form-control" placeholder="password" name="password" type="password">
                 </div>
+                <div class="loginbox-textbox">
+                    <input class="form-control" placeholder="CAPTCHA" name="code" style="width:90px; float:left; cursor:pointer;" type="text">
+                    <img style="float:left;" src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}?'+Math.random(); " /> 
+                </div>    
+                <div class="loginbox-textbox"> <br/></div>            
                 <div class="loginbox-submit">
                     <input class="btn btn-primary btn-block" value="Login" type="submit">
                 </div>
             </div>
+            <br/>
                 <div class="logobox">
                     <p class="text-center">童老师ThinkPHP交流群：4845194464</p>
                 </div>
