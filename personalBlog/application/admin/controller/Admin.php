@@ -1,13 +1,14 @@
 <?php
 namespace app\admin\controller;
 
-use think\Controller;
+use app\admin\controller\Base;
 use think\Db;
 use think\Validate;
 use think\Loader;
 use app\admin\model\Admin as AdminModel;
-class Admin extends controller
+class Admin extends Base
 {
+
     public function lst()
     {
     	// 分页输出列表 每页显示3条数据

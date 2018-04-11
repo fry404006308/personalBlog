@@ -1,12 +1,12 @@
 <?php
 namespace app\admin\controller;
 
-use think\Controller;
+use app\admin\controller\Base;
 use think\Db;
 use think\Validate;
 use think\Loader;
 use app\admin\model\Links as LinksModel;
-class Links extends controller
+class Links extends Base
 {
     public function lst()
     {
