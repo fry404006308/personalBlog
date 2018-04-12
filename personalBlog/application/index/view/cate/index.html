@@ -27,7 +27,7 @@
 		{volist name="articleres" id="value"}
 		<div class="xnews2">
 			<div class="pic">
-				<a target="_blank" href="20160920156216.html">
+				<a target="_blank" href="{:url('article/index',array('arid'=>$value.id))}">
 					<img src="{if condition="$value['pic'] neq '' "}__IMG__{$value.pic} {else /}__PUBLIC__/images/error.png{/if} " alt="{$value.title}"/>
 				</a>
 			</div>
@@ -35,7 +35,14 @@
 				<h3><a target="_blank" href="{:url('article/index',array('arid'=>$value.id))}">{$value.title}</a></h3>
 				<div class="time">发布时间：{$value.time|date="Y-m-d",###}</div>
 				<p>{$value.desc}</p>
-				<div class="time"><a href='z97712.html'>{$value.keywords}</a>  </div>
+				<div class="time">
+					<?php 
+						$arr=explode(',',$value['keywords']);
+						foreach($arr as $k => $v){
+							echo "<a href='#'>$v</a>";
+						}
+					?>
+				</div>
 			</div>
 		</div>
 		{/volist}

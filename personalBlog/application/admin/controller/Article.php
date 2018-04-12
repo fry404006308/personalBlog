@@ -32,7 +32,7 @@ class Article extends Base
                 'title'=>input('title'),
                 'author'=>input('author'),
                 'desc'=>input('desc'),   
-                'keywords'=>input('keywords'),   
+                'keywords'=>str_replace('，', ',', input('keywords')),
                 'content'=>input('content'),   
                 'cateid'=>input('cateid'),   
                 'time'=>time(), 
@@ -83,7 +83,7 @@ class Article extends Base
                 'title'=>input('title'),
                 'author'=>input('author'),
                 'desc'=>input('desc'),   
-                'keywords'=>input('keywords'), 
+                'keywords'=>str_replace('，', ',', input('keywords')),
                 'content'=>input('content'), 
                 'cateid'=>input('cateid'), 
 

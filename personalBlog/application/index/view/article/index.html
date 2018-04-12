@@ -26,7 +26,14 @@
                     <div class="spread">
                         <span class="writor">发布时间：{$articleres.time|date='Y-m-d',###}</span>
                         <span class="writor">编辑：{$articleres.author}</span>
-                        <span class="writor">标签：<a href='/jiehun/z97712.html'>聚餐</a></span>
+                        <span class="writor">标签：
+                            <?php 
+                                $arr=explode(',',$articleres['keywords']);
+                                foreach($arr as $k => $v){
+                                    echo "<a href='#'>$v</a>";
+                                }
+                            ?>
+                        </span>
                         <span class="writor">热度：{$articleres.click}</script></span>
                     </div>
                 </div>
@@ -60,14 +67,10 @@
                     <div class="lef"><!--相关阅读主题链接--><script src='/jiehun/goto/my-65540.js' language='javascript'></script></div>
                     <div class="rig">
                         <ul>
-                            <li><a href='./images/20160907155021.html' target="_blank">蓝牙耳机怎么和手机连接 连接手机及电脑的方法</a></li>
-<li><a href='./images/20141026134140.html' target="_blank">湖南邵阳夏美玲资料照片 5岁留守女童当环卫工</a></li>
-<li><a href='./images/20140924132601.html' target="_blank">张彦文女友林佩真资料照片 砍杀女友事件原因真相</a></li>
-<li><a href='./images/20140917132145.html' target="_blank">天使女孩胡依萱个人资料 曝胡依萱案件始末</a></li>
-<li><a href='./images/20140916132072.html' target="_blank">周友平个人资料照片 连环性虐6男子致死案始末</a></li>
-<li><a href='./images/20140904131317.html' target="_blank">泰国小胖墩变性前男儿身照片 变身辣妹今夕对比</a></li>
-<li><a href='./images/20140828130836.html' target="_blank">女孩凡莎莎遇害死亡照片 蹊跷身亡凡料微博求助</a></li>
-
+                            {volist name="ralateres" id="value"}
+                                <li><a href='{:url('article/index',array('arid'=>$value['id']))}' target="_blank">{$value.title}</a></li>
+                            {/volist}
+                            
                         </ul>
                     </div>
                 </div>
