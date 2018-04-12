@@ -4,7 +4,7 @@
                 <div class="right">
                     <div class="box">
                         <a href="{:url('index/index')}"  rel='dropmenu209'>首页</a> 
-                        {volist name="cateres" id="value"}
+                        {volist name="cates" id="value"}
                             <a href="{:url('cate/index',array('cateid'=>$value['id']))}"  rel='dropmenu209'>{$value.catename}</a> 
                         {/volist}
                     </div>

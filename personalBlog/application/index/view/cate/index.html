@@ -18,7 +18,7 @@
 <!--顶部通栏-->
 
 
-<div class="position"><a href='http://www.wed114.cn'>主页</a> > <a href=''>生活</a> >  </div>
+<div class="position"><a href="{:url('index/index')}">主页</a> > <a href="{:url('cate/index',array('cateid'=>$cateres['id']))}">{$cateres.catename}</a> >  </div>
 
 <div class="overall">
 
@@ -32,10 +32,10 @@
 				</a>
 			</div>
 			<div class="dec">
-				<h3><a target="_blank" href="20160920156216.html">{$value.title}</a></h3>
+				<h3><a target="_blank" href="{:url('article/index',array('arid'=>$value.id))}">{$value.title}</a></h3>
 				<div class="time">发布时间：{$value.time|date="Y-m-d",###}</div>
 				<p>{$value.desc}</p>
-				<div class="time"><a href='z97712.html'>聚餐</a>  </div>
+				<div class="time"><a href='z97712.html'>{$value.keywords}</a>  </div>
 			</div>
 		</div>
 		{/volist}
