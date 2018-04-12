@@ -17,7 +17,7 @@
 {include file="common/header" /}
 <!--顶部通栏-->
 
-<div class="position">搜索：{$keywords}</div>
+<div class="position">搜索：<span style="color:#f00;font-weight: bold;">{$keywords}</span></div>
 
 
 <div class="overall">
@@ -39,7 +39,7 @@
 					<?php 
 						$arr=explode(',',$value['keywords']);
 						foreach($arr as $k => $v){
-							echo "<a href='#'>$v</a>";
+							echo "<a href='http://127.0.0.1:81/personalBlog/public/index.php/index/search/index?keywords=$v'>$v</a>";
 						}
 					?>
 				</div>
