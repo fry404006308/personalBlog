@@ -17,14 +17,14 @@
 {include file="common/header" /}
 <!--顶部通栏-->
 
+<div class="position">搜索：{$keywords}</div>
 
-<div class="position"><a href="{:url('index/index')}">主页</a> > <a href="{:url('cate/index',array('cateid'=>$cateres['id']))}">{$cateres.catename}</a> >  </div>
 
 <div class="overall">
 
 	<div class="left">
 
-		{volist name="articleres" id="value"}
+		{volist name="searchres" id="value"}
 		<div class="xnews2">
 			<div class="pic">
 				<a target="_blank" href="{:url('article/index',array('arid'=>$value.id))}">
@@ -39,10 +39,9 @@
 					<?php 
 						$arr=explode(',',$value['keywords']);
 						foreach($arr as $k => $v){
-							echo '<a href="#">$v</a>';
+							echo "<a href='#'>$v</a>";
 						}
 					?>
-
 				</div>
 			</div>
 		</div>
@@ -50,7 +49,7 @@
 
 		<div class="pages">
 			<div class="plist" >
-				{$articleres->render()}
+				{$searchres->render()}
 			</div>
 		</div>
 	</div>
