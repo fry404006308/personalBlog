@@ -3,24 +3,16 @@
 
 ##一、后台
 
-![Image text]
-
-(https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/adminpage.gif)
+![后台效果截图，图片较大，请耐心等待](https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/adminpage.gif)
 
 ##二、前台
 
-![Image text]
-
-(https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/frontpage.gif)
+![前台效果截图，图片较大，请耐心等待](https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/frontpage.gif)
 
 ##三、数据库
 
-![Image text]
-
-(https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/database.gif)
+![数据库效果截图，图片较大，请耐心等待](https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/database.gif)
 
 ##四、代码
 
-![Image text]
-
-(https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/code.gif)
+![代码效果截图，图片较大，请耐心等待](https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/code.gif)
