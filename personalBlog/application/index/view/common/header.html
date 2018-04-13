@@ -14,7 +14,12 @@
         </div>
 
 <div class="hotmenu">
-	<div class="con">热门标签：<a href='qiwenqushi/'>奇闻趣事</a> <a href=''>生活妙招</a> <a href='xingzuo/'>星座</a> <a href='qinzi/'>亲子</a> <a href='qiche/'>汽车</a> <a href='chongwubaike/'>宠物百科</a> <a href='jiaji/'>家居</a> </div>
+	<div class="con">热门标签：
+        {volist name='tagss' id='v'}
+        <a href='http://127.0.0.1:81/personalBlog/public/index.php/index/search/index?keywords={$v.tagname}'>{$v.tagname}</a> 
+        {/volist}
+
+    </div>
 </div>
 
 <!--顶部通栏-->

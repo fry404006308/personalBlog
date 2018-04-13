@@ -9,7 +9,12 @@ class Base extends Controller
     {
     	//得到栏目数据，并且分配
     	$cates = Db::name('cate')->order('id asc')->select(); 
-    	$this->assign('cates',$cates);
+        //得到tags标签
+        $tagss = Db::name('tags')->order('id desc')->select(); 
+    	$this->assign(array(
+            'cates'=>$cates,
+            'tagss'=>$tagss,
+        ));
 
     	//执行处理右边的热门点击和推荐阅读
     	$this->right();
@@ -26,5 +31,8 @@ class Base extends Controller
     		'recs'=>$recs,
     	));
     }
+
+    //得到tags标签
+
 
 }

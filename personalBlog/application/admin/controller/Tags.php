@@ -5,13 +5,13 @@ use app\admin\controller\Base;
 use think\Db;
 use think\Validate;
 use think\Loader;
-use app\admin\model\Links as LinksModel;
-class Links extends Base
+// use app\admin\model\Links as LinksModel;
+class Tags extends Base
 {
     public function lst()
     {
     	// 分页输出列表 每页显示3条数据
-		$list = LinksModel::paginate(3);
+		$list = db('tags')->paginate(3);
 		$this->assign('list',$list);
         return view('list');
     }
@@ -31,12 +31,11 @@ class Links extends Base
     		// 1、接收传递过来的数据
 
     		$data=[
-    			'title'=>input('title'),
-    			'url'=>input('url'),
-                'desc'=>input('desc'),
+    			'tagname'=>input('tagname'),
+
     		];
 
-    		$validate = Loader::validate('Links');
+    		$validate = Loader::validate('Tags');
 			if(!$validate->scene('add')->check($data)){
 				$this->error($validate->getError()); die;
     		}
@@ -47,10 +46,10 @@ class Links extends Base
 			// }
 
     		// if添加成功，就指向success页面
-    		if(Db::name('links')->insert($data)){
-    			return $this->success('添加链接成功！！','lst');
+    		if(Db::name('tags')->insert($data)){
+    			return $this->success('添加Tag标签成功！！','lst');
     		}else{
-    			return $this->error('添加链接失败！！');
+    			return $this->error('添加Tag标签失败！！');
     		}
     		return;
     	}
@@ -60,28 +59,27 @@ class Links extends Base
     public function edit(){
 
         $id=input('id');
-        $data=db('links')->find($id);
+        $data=db('tags')->find($id);
 
         //如果是提交过来的数据
         if(request()->isPost()){
             $arr=[
                 'id'=>input('id'),
-                'title'=>input('title'),
-                'url'=>input('url'),
-                'desc'=>input('desc'),   
+                'tagname'=>input('tagname'),
+
             ];
 
             //验证
-            $validate = Loader::validate('Links');
+            $validate = Loader::validate('Tags');
             if(!$validate->scene('edit')->check($arr)){
                 $this->error($validate->getError()); die;
             }
             // 更新数据表中的数据
-            $edited=db('links')->update($arr);
+            $edited=db('tags')->update($arr);
             if($edited){
-                return $this->success('修改链接信息成功！！','lst');
+                return $this->success('修改Tag标签信息成功！！','lst');
             }else{
-                return $this->error('修改链接信息失败！！');
+                return $this->error('修改Tag标签信息失败！！');
             }
             return;
         }
@@ -95,11 +93,11 @@ class Links extends Base
         // 根据主键删除
         
         //删除操作
-        $deleted=db('links')->delete(input('id'));
+        $deleted=db('tags')->delete(input('id'));
         if($deleted){
-            return $this->success('删除链接成功！！','lst');
+            return $this->success('删除Tag标签成功！！','lst');
         }else{
-            return $this->error('删除链接失败！！');
+            return $this->error('删除Tag标签失败！！');
         }
 
         
