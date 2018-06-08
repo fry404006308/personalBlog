@@ -3,7 +3,7 @@
 
 ## 一、后台
 
-![后台效果截图，图片较大，请耐心等待](https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/adminpage.gif)
+![后台效果截图，图片较大，请耐心等待](https://github.com/fry404006308/personalBlog/blob/master/personalBlog/otherRes/effectImage/admin.gif)
 
 ## 二、前台
 
